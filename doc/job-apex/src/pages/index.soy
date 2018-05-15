@@ -1,0 +1,128 @@
+---
+title: "Home"
+description: "Job.apex is a library that aims to easily create and manage Apex scheduled jobs."
+---
+
+{namespace pageIndex}
+
+/**
+ */
+{template .render}
+	{@param site: ?}
+
+	{call main.render data="all"}
+		{param content kind="html"}
+			{call .header data="all" /}
+			{call .why /}
+			{call .features /}
+			{call .how /}
+			{call .highlights /}
+			{call Footer.render data="all" /}
+		{/param}
+	{/call}
+{/template}
+
+/**
+ */
+{template .header}
+	{@param site: ?}
+
+	<header class="header">
+		<div class="container">
+			<h1 class="header-title">{$site.title}</h1>
+			<h2 class="header-subtitle">{$site.index.description}</h2>
+			<div class="header-cta">
+				<a href="/job-apex/tutorials/getting_started/step_1.html" class="btn btn-accent">Get Started</a>
+			</div>
+		</div>
+	</header>
+{/template}
+
+/**
+ */
+{template .why}
+	<article class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-2">
+					<h3 class="about-title">Why Job.apex?</h3>
+					<p class="about-description">Job.apex is created to offer a readable and fluent API to create Apex scheduled jobs as an alternative to the normal cron expression way. Besides, Job.apex supports a repeating job to work around the limitation in Apex that scheduled jobs cannot run in an interval less than 1 hour. Also Job.apex has API to manage all the scheduled jobs.</p>
+				</div>
+			</div>
+		</div>
+	</article>
+{/template}
+
+/**
+ */
+{template .features}
+	<div class="features">
+		<div class="container">
+			<div class="row">
+				<section class="feature col-md-4 col-md-offset-2">
+					<h3 class="feature-title">Fluent API</h3>
+					<p class="feature-description">Job.apex uses a chaining readable API to build cron expression based Apex scheduled jobs.</p>
+				</section>
+				<section class="feature col-md-4">
+					<h3 class="feature-title">Repeating Jobs</h3>
+					<p class="feature-description">Job.apex provides repeating job mechanism that support an interval of less than 1 hour.</p>
+				</section>
+				<section class="feature col-md-4">
+					<h3 class="feature-title">Jobs Management</h3>
+					<p class="feature-description">Job.apex provides API to easily schedules/unschedules/reschedules/queries jobs.</p>
+				</section>
+			</div>
+		</div>
+	</div>
+{/template}
+
+/**
+ */
+{template .how}
+	<article class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-2">
+					<h3 class="about-title">Easy Job Scheduling</h3>
+					<p class="about-description">Scheduling Apex jobs becomes easier than ever. No hard cron expressions. Easy repeating every minute.</p>
+				</div>
+			</div>
+		</div>
+	</article>
+{/template}
+
+/**
+ */
+{template .highlights}
+	<div class="highlights">
+		<div class="container">
+			<section class="highlight row">
+				<div class="col-md-6 col-md-offset-2">
+					<h4 class="highlight-title">Fluent API</h4>
+					<p class="highlight-description">Job.apex uses a fluent API to build cron expressions.</p>
+				</div>
+				<div class="col-md-5 col-md-offset-1">
+					<img class="highlight-image" src="/job-apex/images/highlight_1.png" alt="Fluent API" height="200">
+				</div>
+			</section>
+			<section class="highlight row">
+				<div class="col-md-6 col-md-push-9">
+					<h4 class="highlight-title">Repeating Jobs</h4>
+					<p class="highlight-description">Job.apex can create jobs that repeats itself in an interval less than 1 hour.</p>
+				</div>
+				<div class="col-md-5 col-md-offset-2 col-md-pull-6">
+					<img class="highlight-image" src="/job-apex/images/highlight_2.png" alt="Repeating Jobs" height="200">
+				</div>
+			</section>
+			<section class="highlight row">
+				<div class="col-md-6 col-md-offset-2">
+					<h4 class="highlight-title">Job Management</h4>
+					<p class="highlight-description">Job.apex provides API to easily manage scheduled jobs.</p>
+				</div>
+				<div class="col-md-5 col-md-offset-1">
+					<img class="highlight-image" src="/job-apex/images/highlight_3.png" alt="Job Management" height="200">
+				</div>
+			</section>
+		</div>
+	</div>
+{/template}
