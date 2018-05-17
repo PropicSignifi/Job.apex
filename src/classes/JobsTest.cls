@@ -29,15 +29,35 @@ private class JobsTest {
     }
 
     @isTest
-    private static void getCronTriggerTest() {
+    private static void scheduleTest() {
         Test.startTest();
-        new Job('test', R.debug)
+
+        Id id = new Job('test', R.debug)
             .startNow()
             .afterSeconds(1)
             .repeatOnce()
             .schedule();
         CronTrigger ct = Jobs.getInstance().getCronTriggerByName('test');
         System.assert(ct != null);
+
+        ct = Jobs.getInstance().getCronTriggerById(id);
+        System.assert(ct != null);
+
+        System.assert(!Jobs.getInstance().getCronTriggers().isEmpty());
+
+        Jobs.getInstance().unscheduleById(id);
+
+        ct = Jobs.getInstance().getCronTriggerById(id);
+        System.assert(ct == null);
+
+        Job newJob = new Job('newJob', R.debug)
+            .startNow()
+            .afterMinutes(30)
+            .repeatOnce();
+        Jobs.getInstance().reschedule(newJob);
+
+        Jobs.getInstance().unscheduleByName('newJob');
+
         Test.stopTest();
     }
 }
