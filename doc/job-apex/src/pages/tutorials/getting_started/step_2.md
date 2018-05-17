@@ -12,7 +12,7 @@ weight: 2
 
 It's recommended that you have a fair amount of knowledge on [R.apex](https://github.com/Click-to-Cloud/R.apex), but it's not required.
 
-Async.apex uses Func objects from R.apex, and a Func is actually a custom Apex object that mimics the behavior of a function.
+Job.apex uses Func objects from R.apex, and a Func is actually a custom Apex object that mimics the behavior of a function.
 
 Here is how your implement a custom Func.
 
